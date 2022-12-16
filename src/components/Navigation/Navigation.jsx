@@ -7,9 +7,7 @@ const Navigation = () => {
      const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
      return(
      <nav>
-     <NavLink to='/'>
-          Главная
-     </NavLink>
+    
 
     {isLoggedIn && (
      <NavLink to='/contacts'>

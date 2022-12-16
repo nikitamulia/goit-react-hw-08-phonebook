@@ -18,8 +18,8 @@ export const ContactList = () => {
     return(
         <ul className={styles.ContactList}>
             {filteredContacts.map(contact => {
-                const {name, phone, id} = contact || {}
-                return <ContactListItem key = {id} name={name} phone={phone} id={id}/>
+                const {name, number, id} = contact || {}
+                return <ContactListItem key = {id} name={name} phone={number} id={id}/>
             })}
         </ul>
     )

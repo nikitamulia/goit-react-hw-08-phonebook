@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useDispatch} from "react-redux";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import authSelectors from "redux/auth/auth-selectors";
@@ -9,12 +9,9 @@ import AppBar from './AppBar/AppBar';
 import { Routes, Route } from 'react-router-dom';
 
 
-import ContactsPage from 'Pages/ContactsPage';
-import LoginPage from 'Pages/LoginPage';
-import RegisterPage from 'Pages/RegisterPage';
-
-
-
+const Contact = lazy(() => import ("../Pages/ContactsPage"))
+const LoginPage = lazy(() => import ("../Pages/LoginPage"))
+const RegisterPage = lazy(() => import ("../Pages/RegisterPage"))
 
 
 export default function App(){
@@ -36,7 +33,7 @@ export default function App(){
             path="/contacts"
             element={
               <PrivateRoute>
-                <ContactsPage />
+                <Contact />
               </PrivateRoute>
             }
           />

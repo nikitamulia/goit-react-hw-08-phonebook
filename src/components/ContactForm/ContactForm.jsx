@@ -16,7 +16,7 @@ export default function ContactForm(){
         if(phones.some(phone => phone.name.toLowerCase() === name.toLowerCase())){
           return alert(`${name} is already in contacts `)
         }
-        dispatch(addContacts({name, phone:number}));
+        dispatch(addContacts({name, number}));
         form.reset();
   };
   return (
