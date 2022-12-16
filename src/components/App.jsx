@@ -1,35 +1,67 @@
-import { getPhones } from "redux/phoneSlice";
 import { useSelector } from 'react-redux';
-import ContactForm from "./ContactForm/ContactForm";
-import { ContactList } from "./ContactList/ContactList";
-import { Filter } from "./Filter/Filter";
 import { useDispatch} from "react-redux";
-import { fetchContacts } from "redux/operations";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import PublicRoute from "./PublicRoute/PublicRoute";
+import authSelectors from "redux/auth/auth-selectors";
+import operations from 'redux/auth/auth-operations';
+import AppBar from './AppBar/AppBar';
+import { Routes, Route } from 'react-router-dom';
+
+
+import ContactsPage from 'Pages/ContactsPage';
+import LoginPage from 'Pages/LoginPage';
+import RegisterPage from 'Pages/RegisterPage';
+
+
+
 
 
 export default function App(){
-  const contacts = useSelector(getPhones);
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(authSelectors.getIsRefreshing)
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(operations.fetchCurrentUser());
   }, [dispatch]);
 
- 
 
-    return (
-      <div
-        className="App"
-      >
-       <div>
-        <h1>Phonebook</h1>
-        <ContactForm />
-       
-       </div>
-        {contacts.length>0 ? <h2>Contacts</h2> : <h2>There are no contacts</h2>}
-        {contacts.length>0 &&  <Filter />}
-        <ContactList />
-      </div>
-    );
-  
-  }
+  return(
+    !isRefreshing && (
+           <div>
+      <AppBar/>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+        </Routes>
+      </Suspense>
+     
+    </div>
+    )
+   )
+}
+
+
