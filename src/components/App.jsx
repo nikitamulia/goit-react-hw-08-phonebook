@@ -30,7 +30,7 @@ export default function App(){
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route
-            path="/contacts"
+            path="contacts"
             element={
               <PrivateRoute>
                 <Contact />
@@ -38,7 +38,7 @@ export default function App(){
             }
           />
           <Route
-            path="/register"
+            path="register"
             element={
               <PublicRoute restricted>
                 <RegisterPage />
@@ -46,7 +46,7 @@ export default function App(){
             }
           />
           <Route
-            path="/login"
+            path="login"
             element={
               <PublicRoute restricted>
                 <LoginPage />
