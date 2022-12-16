@@ -1,0 +1,11 @@
+.li{
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+.button{
+    display: flex;
+    border: none;
+    border-radius: 10px;
+    background-color: silver;
+}

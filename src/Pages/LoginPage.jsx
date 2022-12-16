@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import operations from "redux/auth/auth-operations";
+import s from './LoginPage.module.css';
 
 export default function LoginPage(){
     const dispatch = useDispatch();
@@ -29,19 +30,19 @@ export default function LoginPage(){
         <div>
             <h1>Страница логина</h1>
 
-            <form onSubmit={handleSubmit} autoComplete="off">
+            <form className={s.form} onSubmit={handleSubmit} autoComplete="off">
                 <label htmlFor="">
                     Почта
-                    <input type="email" name="email" value={email} onChange={handleChange}/>
+                    <input className={s.input} type="email" name="email" value={email} onChange={handleChange}/>
                 </label>
 
                 <label htmlFor="">
                     Пароль
-                    <input type="password" name="password" value={password} onChange={handleChange}/>
+                    <input className={s.input} type="password" name="password" value={password} onChange={handleChange}/>
                 </label>
 
                 <div>
-                <button type="submit">Войти</button>
+                <button className={s.button} type="submit">Войти</button>
               </div>
             </form>
         </div>

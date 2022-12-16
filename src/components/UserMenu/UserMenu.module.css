@@ -1,0 +1,9 @@
+.span{
+    color: green;
+    margin-right: 15px;
+}
+.button{
+    border: none;
+    border-radius: 10px;
+    background-color: silver;
+}

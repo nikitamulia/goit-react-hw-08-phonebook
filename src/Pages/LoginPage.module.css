@@ -1,0 +1,16 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 20px;
+    margin-left: 15px;
+}
+.input{
+   display: flex;
+   width: 200px;
+}
+.button{
+    border: none;
+    border-radius: 10px;
+    background-color: silver;
+}

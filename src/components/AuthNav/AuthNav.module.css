@@ -1,0 +1,6 @@
+.navLink{
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+    color:brown
+}
