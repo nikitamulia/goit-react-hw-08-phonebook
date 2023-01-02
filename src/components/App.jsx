@@ -12,6 +12,7 @@ import { Routes, Route } from 'react-router-dom';
 const Contact = lazy(() => import ("../Pages/ContactsPage"))
 const LoginPage = lazy(() => import ("../Pages/LoginPage"))
 const RegisterPage = lazy(() => import ("../Pages/RegisterPage"))
+const HomePage = lazy(()=> import("../Pages/HomePage") )
 
 
 export default function App(){
@@ -29,6 +30,14 @@ export default function App(){
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
+        <Route
+            path="home"
+            element={
+              <PublicRoute restricted>
+                <HomePage/>
+              </PublicRoute>
+            }
+          />
           <Route
             path="contacts"
             element={

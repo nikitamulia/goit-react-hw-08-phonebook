@@ -1,8 +1,8 @@
 import { ContactListItem } from "./ContactListItem";
-import styles from './ContactList.module.css';
 import { useSelector } from "react-redux";
 import { getStatusFilter } from "redux/filterSlice";
 import { getPhones } from "redux/phoneSlice";
+import { List } from "./ContactListStyled";
 
 
 
@@ -16,11 +16,11 @@ export const ContactList = () => {
    
     
     return(
-        <ul className={styles.ContactList}>
+        <List>
             {filteredContacts.map(contact => {
                 const {name, number, id} = contact || {}
                 return <ContactListItem key = {id} name={name} phone={number} id={id}/>
             })}
-        </ul>
+        </List>
     )
 }

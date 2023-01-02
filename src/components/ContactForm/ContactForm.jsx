@@ -1,7 +1,7 @@
-import styles from './ContactForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
 import { getPhones } from "redux/phoneSlice";
 import { addContacts } from 'redux/operations';
+import { Form, Input, Button, Text } from "./ContactFormStyled";
 
 export default function ContactForm(){
   
@@ -20,18 +20,18 @@ export default function ContactForm(){
         form.reset();
   };
   return (
-          <div className={styles.contactForm}>
-            <form className={styles.form} onSubmit={handleSubmit}>
-              <p>Name</p>
-              <input
+          <Form onSubmit={handleSubmit}>
+          
+              <Text>Name</Text>
+              <Input
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
               />
-              <p>Number</p>
-              <input
+              <Text>Number</Text>
+              <Input
                 type="tel"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -39,9 +39,9 @@ export default function ContactForm(){
                 required
               />
               <div>
-                <button className={styles.button} type="submit">Add contact</button>
+                <Button type="submit">Add contact</Button>
               </div>
-            </form>
-          </div>
+           
+          </Form>
         )
 }
