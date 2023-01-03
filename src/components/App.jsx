@@ -6,7 +6,7 @@ import PublicRoute from "./PublicRoute/PublicRoute";
 import authSelectors from "redux/auth/auth-selectors";
 import operations from 'redux/auth/auth-operations';
 import AppBar from './AppBar/AppBar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 
 const Contact = lazy(() => import ("../Pages/ContactsPage"))
@@ -27,7 +27,7 @@ export default function App(){
     !isRefreshing && (
            <div>
       <AppBar/>
-
+      
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
         <Route
@@ -49,7 +49,7 @@ export default function App(){
           <Route
             path="register"
             element={
-              <PublicRoute restricted>
+              <PublicRoute redirectTo="/contacts" restricted>
                 <RegisterPage />
               </PublicRoute>
             }
@@ -57,11 +57,12 @@ export default function App(){
           <Route
             path="login"
             element={
-              <PublicRoute restricted>
+              <PublicRoute redirectTo="/contacts" restricted>
                 <LoginPage />
               </PublicRoute>
             }
           />
+          <Route path="*" element={<Navigate to="home" />} />
         </Routes>
       </Suspense>
      

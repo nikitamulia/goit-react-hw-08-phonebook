@@ -1,7 +1,7 @@
 import React from "react";
-import styles from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import { setStatusFilter } from "redux/filterSlice";
+import { Box, Text, Input } from "./FilterStyled";
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -12,9 +12,9 @@ export const Filter = () => {
 
 
   return(
-      <div className={styles.filter}>
-        <p> Find contacts by name</p>
-        <input className={styles.filterInput} type="text" onChange = {onChange} />
-      </div>
+      <Box>
+        <Text> Find contacts by name</Text>
+        <Input type="text" placeholder="Enter search name" onChange = {onChange} />
+      </Box>
   )
 }

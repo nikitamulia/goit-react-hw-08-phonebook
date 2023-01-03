@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Item = styled.li`
 list-style: none;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 20px;
     color: #fff;
     font-size: larger;
@@ -11,4 +11,5 @@ list-style: none;
 
 export const Button = styled.button`
 border: none;
+background-color: transparent;
 `

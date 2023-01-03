@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useDispatch } from 'react-redux';
 import { deleteContacts, changeContacts } from "redux/operations";
 import { Item, Button } from "./ContactListItemStyled";
-import DeleteIcon from "../../icons/DeleteIcon.svg"
+import { BsXCircle, BsPencil } from "react-icons/bs";
 
 
 export const ContactListItem = ({id, name, phone}) => {
@@ -13,10 +13,10 @@ export const ContactListItem = ({id, name, phone}) => {
             <Item>
                 {name}:{phone} 
                 <Button type="button" value={id} onClick = {() => dispatch(deleteContacts(id))}>
-                <img src={DeleteIcon} alt="" />
+                <BsXCircle size="20px" />
                 </Button>
                 <Button type="button" value={id} onClick = {() => dispatch(changeContacts(id))}>
-                    Update
+                <BsPencil size="20px"/>
                 </Button>
             </Item>
     );

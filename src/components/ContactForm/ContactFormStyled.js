@@ -3,8 +3,11 @@ import styled from "styled-components";
 export const Form = styled.form`
     width: 400px;
     height: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+
+    @media screen and (max-width: 768px) {
+      width: 320px;
+    }
 `
 export const Input = styled.input`
   width: 400px;
@@ -23,6 +26,10 @@ export const Input = styled.input`
     border-color: #0396FF;
   }
 
+  @media screen and (max-width: 768px) {
+    width: 280px;
+    height: 32px;
+  }
 
 `;
 

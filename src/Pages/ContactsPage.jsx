@@ -6,6 +6,7 @@ import { Filter } from "components/Filter/Filter";
 import { useDispatch} from "react-redux";
 import { fetchContacts } from "redux/operations";
 import { useEffect } from "react";
+import { Title, SecondTitle } from "./ContactsPageStyled";
 
 
 export default function ContactsPage(){
@@ -23,11 +24,11 @@ export default function ContactsPage(){
         className="App"
       >
        <div>
-        <h1>Phonebook</h1>
+        <Title>Phonebook</Title>
         <ContactForm />
        
        </div>
-        {contacts.length>0 ? <h2>Contacts</h2> : <h2>There are no contacts</h2>}
+        {contacts.length>0 ? <SecondTitle>Contacts</SecondTitle> : <SecondTitle>There are no contacts</SecondTitle>}
         {contacts.length>0 &&  <Filter />}
         <ContactList />
       </div>

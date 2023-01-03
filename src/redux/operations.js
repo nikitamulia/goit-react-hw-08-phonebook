@@ -43,3 +43,17 @@ export const changeContacts = createAsyncThunk(
       return thunkAPI.rejectWithValue(e.message);
     }
 });
+// export const editContact = createAsyncThunk(
+//   'tasks/editContact',
+//   async ({ id, newName, newNumber }, thunkAPI) => {
+//       try {
+//           console.log("id:", id); //!
+//           const response = await axios.patch(`/contacts/${id}`, { name: newName, number: newNumber });
+//           // const response = await axios.delete(`/contacts/${contactId}`); //! Ошибка Репеты
+//           console.log("editContact==>response.data", response.data); //!
+//           return response.data;
+//       } catch (e) {
+//           return thunkAPI.rejectWithValue(e.message);
+//       }
+//   }
+// );
