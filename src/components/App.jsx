@@ -65,7 +65,6 @@ export default function App(){
           <Route path="*" element={<Navigate to="home" />} />
         </Routes>
       </Suspense>
-     
     </div>
     )
    )
