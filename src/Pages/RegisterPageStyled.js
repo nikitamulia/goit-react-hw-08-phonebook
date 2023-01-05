@@ -66,7 +66,7 @@ color: #fff;
 
 export const AuthLabel = styled.label`
   position: relative;
-  width: 280px;
+  width: max-content;
   display: block;
 `;
 
