@@ -25,6 +25,7 @@ export const Input = styled.input`
   outline: none;
   height: 34px;
   padding-left: 55px;
+  padding-right: 55px;
   font-size: 18px;
   line-height: 27px;
   border-top: none;
@@ -53,9 +54,16 @@ export const InputIcon = styled.svg`
   top: 25px;
 `;
 
+export const ShowIcon = styled.span`
+position: absolute;
+right: 10px;
+top: 25px;
+color: #fff;
+`
+
 export const AuthLabel = styled.label`
   position: relative;
-  width: 280px;
+  width: max-content;
   display: block;
 `;
 

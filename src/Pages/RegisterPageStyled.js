@@ -57,6 +57,13 @@ export const InputIcon = styled.svg`
   top: 25px;
 `;
 
+export const ShowIcon = styled.span`
+position: absolute;
+right: 10px;
+top: 25px;
+color: #fff;
+`
+
 export const AuthLabel = styled.label`
   position: relative;
   width: 280px;

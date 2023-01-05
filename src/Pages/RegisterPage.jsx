@@ -2,11 +2,16 @@ import { useDispatch } from "react-redux";
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import operations from "redux/auth/auth-operations";
-import { Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn} from "./RegisterPageStyled"
+import { Box, Input, InputIcon, AuthLabel, LogBtn, RegBtn, ShowIcon} from "./RegisterPageStyled"
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
+import { useState } from 'react';
+
 
 export default function RegisterPage(){
     const dispatch = useDispatch();
-   
+    const [type, setType] = useState("password");
+
+
     const SignupSchema = Yup.object({
       email: Yup.string()
         .email('Invalid email, please try another')
@@ -65,10 +70,17 @@ export default function RegisterPage(){
                 placeholder="Password"
                 onChange={handleChange}
                 name="password"
-                type="password"
+                type={type}
                 value={values.password}
                 autoComplete="off"
               ></Input>
+              {type === "password" ? (<ShowIcon onClick={()=> setType("text")}>
+                <BsFillEyeFill/>
+              </ShowIcon>): (
+                <ShowIcon onClick={()=> setType("password")}>
+                <BsFillEyeSlashFill/>
+              </ShowIcon>
+              )}
               <InputIcon width="16" height="21" >
                 <path
                   d="M14 7h-1V5c0-2.76-2.24-5-5-5S3 2.24 3 5v2H2C.9 7 0 7.9 0 9v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2Zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm3.1-9H4.9V5c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2Z"
